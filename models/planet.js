@@ -1,4 +1,4 @@
-var Geometry = require('./geometry-utils')
+var Geometry = require('../lib/geometry-utils')
 
 module.exports = Planet
 

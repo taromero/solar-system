@@ -1,5 +1,5 @@
-var PlanetFactory = require('./planet-factory')
-var Geometry = require('./geometry-utils')
+var PlanetFactory = require('../models/planet-factory')
+var Geometry = require('../lib/geometry-utils')
 
 window.onload = function () {
   var stage = new createjs.Stage('demoCanvas')

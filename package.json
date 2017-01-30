@@ -12,7 +12,7 @@
     "yargs": "^6.6.0"
   },
   "scripts": {
-    "start": "node index",
+    "start": "node server",
     "test": "node exercise-1.js"
   },
   "repository": {

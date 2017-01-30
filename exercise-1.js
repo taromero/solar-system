@@ -1,5 +1,5 @@
-var PlanetFactory = require('./planet-factory')
-var ClimateForecaster = require('./climate-forecaster')
+var PlanetFactory = require('./models/planet-factory')
+var ClimateForecaster = require('./lib/climate-forecaster')
 
 var planets = PlanetFactory.sample()
 

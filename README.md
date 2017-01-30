@@ -9,7 +9,7 @@ npm test
 Bonus Sample call:
 
 ```bash
-curl https://ml-solar-system-fwellffgdg.now.sh/days/27
+curl https://ml-solar-system-djafhmgpim.now.sh/days/27
 ```
 
 #### Technologies

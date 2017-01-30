@@ -1,12 +1,12 @@
 module.exports = {
   entry: [
-    './geometry-utils',
-    './planet',
-    './planet-factory',
-    './climate-forecaster',
-    './solar-system'
+    './lib/geometry-utils',
+    './models/planet',
+    './models/planet-factory',
+    './lib/climate-forecaster',
+    './client/solar-system'
   ],
   output: {
-    filename: 'bundle.js'
+    filename: 'client/bundle.js'
   }
 }

@@ -35,7 +35,7 @@ server.register(require('inert'), (err) => {
     method: 'GET',
     path: '/visualizer',
     handler: function (request, reply) {
-      reply.file('solar-system.html')
+      reply.file('client/solar-system.html')
     }
   })
 
@@ -43,7 +43,7 @@ server.register(require('inert'), (err) => {
     method: 'GET',
     path: '/bundle.js',
     handler: function (request, reply) {
-      reply.file('bundle.js')
+      reply.file('client/bundle.js')
     }
   })
 })
