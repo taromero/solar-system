@@ -10,8 +10,8 @@ console.log('Drought periods # of days', droughtPeriods.length)
 var rainPeriods = ClimateForecaster.daysForCondition(planets, tenYears, 'planetsContainSun')
 console.log('Rain periods # of days', rainPeriods.length)
 
-var maxAreas = ClimateForecaster.daysWithMaxTriangleContainingSun(planets, tenYears)
-console.log('Days with raining peaks', maxAreas.days)
+var maxAreas = ClimateForecaster.daysWithLocalMaxTriangleContainingSun(planets, tenYears)
+console.log('Days with raining peaks', maxAreas)
 
 var optimalPressureAndTemperature = ClimateForecaster.daysForCondition(planets, tenYears, 'alignedButNotThroughCenter')
 console.log('Optimal pressure and temperature # of days', optimalPressureAndTemperature.length)
