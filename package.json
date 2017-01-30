@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "exercise-1.js",
-  "engines": {
-    "node": "6.0.0"
-  },
   "dependencies": {
     "bluebird": "^3.4.7",
     "co": "^4.6.0",
+    "hapi": "^16.1.0",
     "mongodb": "^2.2.22",
     "yargs": "^6.6.0"
   },
   "scripts": {
+    "build": "webpack",
     "test": "node exercise-1.js"
   },
   "repository": {

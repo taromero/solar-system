@@ -25,15 +25,15 @@ forecast.optimalPressureAndTemperature = ClimateForecaster.daysForCondition(plan
 co(function * () {
   var mongoUrl = `mongodb://${dbUser}:${dbPass}@ds137149.mlab.com:37149/solar-system`
   console.log('connecting to mongoDb')
-  var db = yield MongoClient.connect(mongoUrl)
+  var db = yield MongoClient.connectAsync(mongoUrl)
 
   console.log('generating records to create')
   var recordsToCreate = generateRange(roughtNumberOfDaysIn10Years)
     .map(toForecast)
 
   console.log('creating records')
-  var collection = db.collection('forecast')
-  var dbResponse = yield collection.insertMany(recordsToCreate)
+  var collection = Promise.promisifyAll(db.collection('forecast'))
+  var dbResponse = yield collection.insertManyAsync(recordsToCreate)
   console.log('done creating records')
   console.log(`inserted ${dbResponse.ops.length} records`)
 }).catch((err) => console.log('err', err))

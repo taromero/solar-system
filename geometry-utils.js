@@ -1,8 +1,10 @@
 module.exports = {
-  straightLineContainsPoint: function (line, point) {
+  straightLineAlignedWithPoint: function (line, point) {
     var angleLine = this.angleBetweenPoints(line[0], line[1])
     var angleWithPoint = this.angleBetweenPoints(line[0], point)
-    return angleLine === angleWithPoint || angleLine + 180 === angleWithPoint
+    return angleLine === angleWithPoint ||
+      angleLine + 180 === angleWithPoint ||
+      angleLine - 180 === angleWithPoint
   },
   angleBetweenPoints: function (p1, p2) {
     return Math.round(this.radiansToDegrees(Math.atan2(p2.y - p1.y, p2.x - p1.x)))
