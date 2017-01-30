@@ -20,15 +20,9 @@ module.exports = {
     var d1 = planets.map((p) => PlanetFactory.new(p)).map((p) => p.moveToDay(day))
     var d2 = planets.map((p) => PlanetFactory.new(p)).map((p) => p.moveToDay(day + 1))
 
-    var lineSideNumberToday = lineSideNumber([d1[0], d1[2]], d1[1])
-    var lineSideNumberTomorrow = lineSideNumber([d2[0], d2[2]], d2[1])
+    var lineSideNumberToday = Geometry.lineSideNumber([d1[0], d1[2]], d1[1])
+    var lineSideNumberTomorrow = Geometry.lineSideNumber([d2[0], d2[2]], d2[1])
     return lineSideNumberToday === 0 || ((lineSideNumberToday > 0) !== (lineSideNumberTomorrow > 0))
-
-    // Numbers with the same sign are within the same side of the line,
-    // and those with different signs are on opposite sides.
-    function lineSideNumber (line, point) {
-      return (point.x - line[0].x) * (line[1].y - line[0].y) - (point.y - line[0].y) * (line[1].x - line[0].x)
-    }
   },
   planetsContainSun: function (planets, day) {
     return Geometry.inside({x: 0, y: 0}, planets)

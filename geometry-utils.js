@@ -24,24 +24,17 @@ module.exports = {
       return Math.hypot(xDistance, yDistance)
     }
   },
-  // almost copy/pasted from https://github.com/substack/point-in-polygon/blob/master/index.js
-  inside: function (point, vs) {
-    var x = point.x
-    var y = point.y
-
-    var inside = false
-    for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-      var xi = vs[i].x
-      var yi = vs[i].y
-      var xj = vs[j].x
-      var yj = vs[j].y
-
-      var intersect = ((yi > y) !== (yj > y)) &&
-        (x < (xj - xi) * (y - yi) / (yj - yi) + xi)
-      if (intersect) inside = !inside
-    }
-
-    return inside
+  // Checks if the point is on the same side on each line of the triangle.
+  inside: function (point, triangle) {
+    var b0 = this.lineSideNumber([triangle[0], triangle[1]], point) < 0
+    var b1 = this.lineSideNumber([triangle[1], triangle[2]], point) < 0
+    var b2 = this.lineSideNumber([triangle[2], triangle[0]], point) < 0
+    return ((b0 === b1) && (b1 === b2))
+  },
+  // Numbers with the same sign are within the same side of the line,
+  // and those with different signs are on opposite sides.
+  lineSideNumber: function (line, point) {
+    return (point.x - line[0].x) * (line[1].y - line[0].y) - (point.y - line[0].y) * (line[1].x - line[0].x)
   },
   radiansToDegrees: function (radians) {
     return radians * 180 / Math.PI
