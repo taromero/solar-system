@@ -1,4 +1,6 @@
-var PlanetFactory = {
+var Planet = require('./planet')
+
+module.exports = {
   new: function (...args) {
     var instance = new Planet(...args)
     instance.calculateCoordinates()

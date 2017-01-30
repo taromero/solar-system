@@ -1,4 +1,4 @@
-var Geometry = {
+module.exports = {
   straightLineContainsPoint: function (line, point) {
     var angleLine = this.angleBetweenPoints(line[0], line[1])
     var angleWithPoint = this.angleBetweenPoints(line[0], point)

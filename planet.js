@@ -1,3 +1,7 @@
+var Geometry = require('./geometry-utils')
+
+module.exports = Planet
+
 function Planet (params) {
   Object.assign(this, params)
 }
@@ -10,10 +14,7 @@ Planet.prototype.moveToDay = function (numberOfDays) {
 }
 
 Planet.prototype.calculateCoordinates = function () {
-  this.x = Math.cos(degreesToRadians(this.degrees)).toFixed(10) * this.distanceFromCenter
-  this.y = Math.sin(degreesToRadians(this.degrees)).toFixed(10) * this.distanceFromCenter
+  this.x = Math.cos(Geometry.degreesToRadians(this.degrees)).toFixed(10) * this.distanceFromCenter
+  this.y = Math.sin(Geometry.degreesToRadians(this.degrees)).toFixed(10) * this.distanceFromCenter
 }
 
-function degreesToRadians (degrees) {
-  return degrees * 0.0174533
-}

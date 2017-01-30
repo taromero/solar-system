@@ -1,4 +1,6 @@
-var solarSystem
+var PlanetFactory = require('./planet-factory')
+var Geometry = require('./geometry-utils')
+
 window.onload = function () {
   var stage = new createjs.Stage('demoCanvas')
   var planets = [
@@ -7,9 +9,9 @@ window.onload = function () {
     PlanetFactory.new({ name: 'betasoide', degrees: 0, distanceFromCenter: 200, angularVelocity: -3, orbitColor: 'olive' })
   ]
 
-  solarSystem = SolarSystem.new(stage, planets)
+  window.solarSystem = SolarSystem.new(stage, planets)
 
-  solarSystem.draw()
+  window.solarSystem.draw()
 }
 
 var SolarSystem = {

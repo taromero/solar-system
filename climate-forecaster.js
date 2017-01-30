@@ -1,4 +1,7 @@
-var ClimateForecaster = {
+var PlanetFactory = require('./planet-factory')
+var Geometry = require('./geometry-utils')
+
+module.exports = {
   daysForCondition: function (planets, maxDays, fnStr) {
     return generateRange(maxDays).filter((i) => this[fnStr](planets.map((p) => p.moveToDay(i)), i))
   },
