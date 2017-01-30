@@ -21,8 +21,7 @@ server.route({
         return Promise.promisify(query.toArray, { context: query })()
       })
       .get(0)
-      .get('forecast')
-      .then((forecast) => reply(forecast))
+      .then((record) => reply({ day: record.day, forecast: record.forecast }))
   }
 })
 
