@@ -28,7 +28,6 @@ module.exports = {
       Geometry.angleBetweenPoints(d2[1], d2[0]) <= Geometry.angleBetweenPoints(d2[1], d2[2])
     )
   },
-  maxTriangle: { area: 0 },
   planetsContainSun: function (planets, day) {
     var area = Geometry.triangleArea(planets)
     if (area > this.maxTriangle.area) {

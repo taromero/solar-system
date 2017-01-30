@@ -4,7 +4,7 @@ module.exports = {
     './planet',
     './planet-factory',
     './climate-forecaster',
-    './canvas'
+    './solar-system'
   ],
   output: {
     filename: 'bundle.js'

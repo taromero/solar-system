@@ -9,9 +9,14 @@ window.onload = function () {
     PlanetFactory.new({ name: 'betasoide', degrees: 0, distanceFromCenter: 200, angularVelocity: -3, orbitColor: 'olive' })
   ]
 
-  window.solarSystem = SolarSystem.new(stage, planets)
+  var solarSystem = SolarSystem.new(stage, planets)
+  solarSystem.draw()
+  solarSystem.updatePlanets(0)
 
-  window.solarSystem.draw()
+  window.solarSystem = solarSystem
+
+  document.getElementById('animate-planets')
+    .addEventListener('click', () => solarSystem.animatePlanets(360))
 }
 
 var SolarSystem = {
@@ -20,8 +25,8 @@ var SolarSystem = {
       planets: planets,
       animatePlanets: function (counter) {
         if (counter < 0) return
-        this.updatePlanets(this.points, counter)
-        setTimeout(() => this.animatePlanets(this.points, counter - 1), 50)
+        this.updatePlanets(counter)
+        setTimeout(() => this.animatePlanets(counter - 1), 50)
       },
       updatePlanets: function (day) {
         var self = this
