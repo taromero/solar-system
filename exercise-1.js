@@ -1,11 +1,7 @@
 var PlanetFactory = require('./planet-factory')
 var ClimateForecaster = require('./climate-forecaster')
 
-var planets = [
-  PlanetFactory.new({ name: 'ferengi', degrees: 0, distanceFromCenter: 500, angularVelocity: -1, orbitColor: 'green' }),
-  PlanetFactory.new({ name: 'vulcano', degrees: 0, distanceFromCenter: 1000, angularVelocity: 5, orbitColor: 'teal' }),
-  PlanetFactory.new({ name: 'betasoide', degrees: 0, distanceFromCenter: 2000, angularVelocity: -3, orbitColor: 'olive' })
-]
+var planets = PlanetFactory.sample()
 
 var roughtNumberOfDaysIn10Years = 365 * 10 + 2 // 2 leap-years in average within a 10 years period
 var droughtPeriods = ClimateForecaster.daysForCondition(planets, roughtNumberOfDaysIn10Years, 'centerAligned')

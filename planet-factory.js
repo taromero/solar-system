@@ -20,5 +20,12 @@ module.exports = {
       }
     }
     return new Proxy(instance, proxy)
+  },
+  sample: function () {
+    return [
+      this.new({ name: 'ferengi', degrees: 0, distanceFromCenter: 50, angularVelocity: -1, orbitColor: 'green' }),
+      this.new({ name: 'vulcano', degrees: 0, distanceFromCenter: 100, angularVelocity: 5, orbitColor: 'teal' }),
+      this.new({ name: 'betasoide', degrees: 0, distanceFromCenter: 200, angularVelocity: -3, orbitColor: 'olive' })
+    ]
   }
 }

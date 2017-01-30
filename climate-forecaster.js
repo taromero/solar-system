@@ -29,11 +29,6 @@ module.exports = {
     )
   },
   planetsContainSun: function (planets, day) {
-    var area = Geometry.triangleArea(planets)
-    if (area > this.maxTriangle.area) {
-      this.maxTriangle.area = area
-      this.maxTriangle.day = day
-    }
     return Geometry.inside({x: 0, y: 0}, planets)
   },
   daysWithMaxTriangleContainingSun: function (planets, maxDays) {

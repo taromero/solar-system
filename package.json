@@ -1,0 +1,24 @@
+{
+  "name": "mercado-libre-ejercicio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercise-1.js",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "co": "^4.6.0",
+    "mongodb": "^2.2.22",
+    "yargs": "^6.6.0"
+  },
+  "scripts": {
+    "test": "node exercise-1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taromero/solar-system.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
