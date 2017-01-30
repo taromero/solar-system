@@ -21,8 +21,33 @@ server.route({
         return Promise.promisify(query.toArray, { context: query })()
       })
       .get(0)
-      .then((record) => reply({ day: record.day, forecast: record.forecast }))
+      .then((record) => {
+        reply({
+          day: record.day,
+          forecast: record.forecast,
+          visualize: `ml-solar-sytem.now.com/visualize?day=${record.day}`
+        })
+      })
   }
+})
+server.register(require('inert'), (err) => {
+  if (err) throw err
+
+  server.route({
+    method: 'GET',
+    path: '/vizualizer',
+    handler: function (request, reply) {
+      reply.file('solar-system.html')
+    }
+  })
+
+  server.route({
+    method: 'GET',
+    path: '/bundle.js',
+    handler: function (request, reply) {
+      reply.file('bundle.js')
+    }
+  })
 })
 
 server.start((err) => {

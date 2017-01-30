@@ -11,6 +11,15 @@ window.onload = function () {
 
   window.solarSystem = solarSystem
 
+  // Couldn't quickly make Hapi to work properly serving the HTML on a
+  // dynamic path, so using the query string to send the day parameter.
+  var query = window.location.search
+  if (query) {
+    query.replace('?', '')
+    // this expects a single query parameter "day"
+    solarSystem.updatePlanets(query.split('=')[1])
+  }
+
   document.getElementById('animate-planets')
     .addEventListener('click', () => solarSystem.animatePlanets(360))
 }
