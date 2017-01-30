@@ -12,7 +12,7 @@
     "yargs": "^6.6.0"
   },
   "scripts": {
-    "build": "webpack",
+    "start": "node index",
     "test": "node exercise-1.js"
   },
   "repository": {

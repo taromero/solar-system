@@ -1,0 +1,7 @@
+{
+  "name": "ml-solar-system",
+  "type": "npm",
+  "engines": {
+    "node": "7.0.0"
+  }
+}

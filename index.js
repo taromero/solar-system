@@ -1,12 +1,9 @@
-var argv = require('yargs').argv
 var Promise = require('bluebird')
 var MongoClient = Promise.promisifyAll(require('mongodb').MongoClient)
 var Hapi = require('hapi')
 var server = new Hapi.Server()
 
-var dbUser = argv.db_user
-var dbPass = argv.db_pass
-var mongoUrl = `mongodb://${dbUser}:${dbPass}@ds137149.mlab.com:37149/solar-system`
+var mongoUrl = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@ds137149.mlab.com:37149/solar-system`
 
 server.connection({ port: 3000, host: 'localhost' })
 
@@ -14,6 +11,7 @@ server.route({
   method: 'GET',
   path: '/days/{day}',
   handler: function (request, reply) {
+    var serverBaseUrl = `${request.connection.info.protocol}://${request.info.host}`
     MongoClient.connectAsync(mongoUrl)
       .then((db) => {
         var collection = db.collection('forecast')
@@ -25,7 +23,7 @@ server.route({
         reply({
           day: record.day,
           forecast: record.forecast,
-          visualize: `ml-solar-sytem.now.com/visualize?day=${record.day}`
+          visualize: `${serverBaseUrl}/visualizer?day=${record.day}`
         })
       })
   }
@@ -35,7 +33,7 @@ server.register(require('inert'), (err) => {
 
   server.route({
     method: 'GET',
-    path: '/vizualizer',
+    path: '/visualizer',
     handler: function (request, reply) {
       reply.file('solar-system.html')
     }
