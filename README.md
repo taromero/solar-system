@@ -6,10 +6,10 @@ Use at least v6.0.0 of NodeJS.
 npm test
 ```
 
-Bonus Sample call:
+#### Bonus sample call
 
 ```bash
-curl https://ml-solar-system-djafhmgpim.now.sh/days/27
+curl https://ml-solar-system-tndsvvnbbh.now.sh/days/27
 ```
 
 #### Technologies
